@@ -1,0 +1,6 @@
+logger:
+  home: "/var/log/kms-encrypt/"
+  file: "hcentive-kms.log"
+
+aws:
+  region: "us-east-1"
