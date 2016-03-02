@@ -54,3 +54,23 @@ Or use option aliases.
 -k, --keyalias=KEYALIAS    # keyalias - encryption key alias
 -x, --plaintext=PLAINTEXT  # plaintext - text to be encrypted
 ```
+
+* ### hcentive-kms-cli decrypt
+Decrypt base64 encoded ciphertext with supplied key alias; use product, tenant, stack and context to build encryption context
+
+###### USAGE
+`hcentive-kms-cli decrypt --context=CONTEXT --product=PRODUCT --stack=STACK --tenant=TENANT --ciphertext=CIPHERTEXT`
+
+Or use option aliases.
+
+`hcentive-kms-cli decrypt -c CONTEXT -p PRODUCT -s STACK -t TENANT -x CIPHERTEXT`
+
+###### Options
+```
+-p, --product=PRODUCT      # product - name of the product for which the password is being encrypted
+-t, --tenant=TENANT        # tenant - name of the tenant of the product
+-s, --stack=STACK          # stack - dev, qa, sit, uat, production
+-c, --context=CONTEXT      # context - unique context for the plaintext being encrypted; for example, hostname of the application server
+-k, --keyalias=KEYALIAS    # keyalias - encryption key alias
+-x, --plaintext=PLAINTEXT  # plaintext - text to be encrypted
+```
