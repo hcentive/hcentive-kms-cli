@@ -8,7 +8,7 @@ require 'time'
 require 'logger'
 require 'json'
 require 'base64'
-require_relative 'settings'
+require_relative 'lib/settings'
 
 class KmsEncrypt < Thor
   Settings.load!(File.dirname(__FILE__) + '/config/hcentive-kms.yml')
@@ -25,7 +25,7 @@ class KmsEncrypt < Thor
 		"[#{datetime}] : #{severity} : #{progname} - #{msg}\n"
 	end
 
-  desc "encrypt PRODUCT TENANT STACK CONTEXT KEYALIAS PLAINTEXT", "Encrypt plaintext with supplied key alias; use product, tenant, stack and context to build encryption context"
+  desc "encrypt", "Encrypt plaintext with supplied key alias; use product, tenant, stack and context to build encryption context"
 	method_option :product, :required => true, :aliases => "-p", :type => :string, :desc => "product - name of the product for which the password is being encrypted"
 	method_option :tenant, :required => true, :aliases => "-t", :type => :string, :desc => "tenant - name of the tenant of the product"
   method_option :stack, :required => true, :aliases => "-s", :type => :string, :desc => "stack - dev, qa, sit, uat, production"
@@ -60,7 +60,7 @@ class KmsEncrypt < Thor
     puts Base64.encode64(resp.ciphertext_blob)
   end
 
-  desc "decrypt PRODUCT TENANT STACK CONTEXT KEYALIAS PLAINTEXT", "Decrypt base64 encoded ciphertext with supplied key alias; use product, tenant, stack and context to build encryption context"
+  desc "decrypt", "Decrypt base64 encoded ciphertext with supplied key alias; use product, tenant, stack and context to build encryption context"
 	method_option :product, :required => true, :aliases => "-p", :type => :string, :desc => "product - name of the product for which the password is being encrypted"
 	method_option :tenant, :required => true, :aliases => "-t", :type => :string, :desc => "tenant - name of the tenant of the product"
   method_option :stack, :required => true, :aliases => "-s", :type => :string, :desc => "stack - dev, qa, sit, uat, production"

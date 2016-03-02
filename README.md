@@ -39,7 +39,11 @@ Commands:
 Encrypt plaintext with supplied key alias; use product, tenant, stack and context to build encryption context.
 
 ###### USAGE
-`hcentive-kms-cli encrypt PRODUCT TENANT STACK CONTEXT KEYALIAS PLAINTEXT -c, --context=CONTEXT -k, --keyalias=KEYALIAS -p, --product=PRODUCT -s, --stack=STACK -t, --tenant=TENANT -x, --plaintext=PLAINTEXT`
+`hcentive-kms-cli encrypt --context=CONTEXT  --keyalias=KEYALIAS --product=PRODUCT --stack=STACK --tenant=TENANT --plaintext=PLAINTEXT`
+
+Or use option aliases.
+
+`hcentive-kms-cli encrypt -c CONTEXT  -k KEYALIAS -p PRODUCT -s STACK -t TENANT -x PLAINTEXT`
 
 ###### Options
 ```
