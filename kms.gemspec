@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name        = 'hcentive-kms'
   s.version     = '0.0.1'
   s.date        = '2016-02-18'
-  s.summary     = "Ruby gem for hCentive's implementation of AWS KSM"
+  s.summary     = "Ruby gem for hCentive's implementation of AWS KMS"
   s.description = "A library that implement's hCentive's KMS design"
   s.authors     = ["Satyendra Sharma"]
   s.email       = 'satyendra.sharma@hcentive.com'

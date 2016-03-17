@@ -2,3 +2,5 @@
 .bundle
 
 spec/fixtures/kms.test.credentials
+hcentive-kms-0.0.1.gem
+kms-0.0.1.gem

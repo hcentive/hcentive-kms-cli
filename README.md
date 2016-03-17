@@ -1,5 +1,5 @@
-hcentive-kms-cli
-================
+kms
+===
 A command line tool to encrypt and decrypt text using AWS KMS. It is part of the toolset for the [overall encryption framework](https://hcentivetech-my.sharepoint.com/personal/satyendra_sharma_hcentive_com/_layouts/15/guestaccess.aspx?guestaccesstoken=1j4waC6Kg%2b90kbnOEiyD8BohYtSvUKuvhfPfj8Atne4%3d&docid=2_17e675c6f293b4a198e2aa50ef7903313).
 
 Installation
@@ -13,7 +13,7 @@ System requirements -
   * libssl-dev
   * libopenssl-ruby
 
-`hcentive-kms-cli` requires the following environment variables to be present:
+`kms` requires the following environment variables to be present:
 ```
 AWS_ACCESS_KEY_ID='...'
 AWS_SECRET_ACCESS_KEY='...'
@@ -26,28 +26,27 @@ Clone the repository from https://git.demo.hcentive.com/hcentive-kms-cli, and ru
 
 Usage
 -----
-`hcentive-kms-cli` has the following commands. Type help to get the list of commands.
+`kms` has the following commands. Type help to get the list of commands.
 ```
-hcentive-kms-cli help                 
+kms help                 
 Commands:
-  hcentive-kms-cli decrypt PRODUCT TENANT STACK CONTEXT KEYALIAS PLAINTEXT -c, --context=CONTEXT -p, --product=PRODUCT -s, --stack=STACK -t, --tenant=TENANT -x, --ciphertext=CIPHERTEXT             ...
-  hcentive-kms-cli encrypt PRODUCT TENANT STACK CONTEXT KEYALIAS PLAINTEXT -c, --context=CONTEXT -k, --keyalias=KEYALIAS -p, --product=PRODUCT -s, --stack=STACK -t, --tenant=TENANT -x, --plaintext=...
-  hcentive-kms-cli help [COMMAND]
+  kms decrypt TENANT STACK CONTEXT KEYALIAS PLAINTEXT -c, --context=CONTEXT -p, --product=PRODUCT -s, --stack=STACK -t, --tenant=TENANT -x, --ciphertext=CIPHERTEXT             ...
+  kms encrypt TENANT STACK CONTEXT KEYALIAS PLAINTEXT -c, --context=CONTEXT -k, --keyalias=KEYALIAS -p, --product=PRODUCT -s, --stack=STACK -t, --tenant=TENANT -x, --plaintext=...
+  kms help [COMMAND]
 ```
 
-* ### hcentive-kms-cli encrypt
-Encrypt plaintext with supplied key alias; use product, tenant, stack and context to build encryption context.
+* ### kms encrypt
+Encrypt plaintext with supplied key alias; use tenant, stack and context to build encryption context.
 
 ###### USAGE
-`hcentive-kms-cli encrypt --context=CONTEXT  --keyalias=KEYALIAS --product=PRODUCT --stack=STACK --tenant=TENANT --plaintext=PLAINTEXT`
+`kms encrypt --context=CONTEXT  --keyalias=KEYALIAS --stack=STACK --tenant=TENANT --plaintext=PLAINTEXT`
 
 Or use option aliases.
 
-`hcentive-kms-cli encrypt -c CONTEXT  -k KEYALIAS -p PRODUCT -s STACK -t TENANT -x PLAINTEXT`
+`kms encrypt -c CONTEXT  -k KEYALIAS -s STACK -t TENANT -x PLAINTEXT`
 
 ###### Options
 ```
--p, --product=PRODUCT      # product - name of the product for which the password is being encrypted
 -t, --tenant=TENANT        # tenant - name of the tenant of the product
 -s, --stack=STACK          # stack - dev, qa, sit, uat, production
 -c, --context=CONTEXT      # context - unique context for the plaintext being encrypted; for example, hostname of the application server
@@ -55,19 +54,18 @@ Or use option aliases.
 -x, --plaintext=PLAINTEXT  # plaintext - text to be encrypted
 ```
 
-* ### hcentive-kms-cli decrypt
-Decrypt base64 encoded ciphertext with supplied key alias; use product, tenant, stack and context to build encryption context
+* ### kms decrypt
+Decrypt base64 encoded ciphertext with supplied key alias; use tenant, stack and context to build encryption context
 
 ###### USAGE
-`hcentive-kms-cli decrypt --context=CONTEXT --product=PRODUCT --stack=STACK --tenant=TENANT --ciphertext=CIPHERTEXT`
+`kms decrypt --context=CONTEXT --stack=STACK --tenant=TENANT --ciphertext=CIPHERTEXT`
 
 Or use option aliases.
 
-`hcentive-kms-cli decrypt -c CONTEXT -p PRODUCT -s STACK -t TENANT -x CIPHERTEXT`
+`kms decrypt -c CONTEXT -s STACK -t TENANT -x CIPHERTEXT`
 
 ###### Options
 ```
--p, --product=PRODUCT      # product - name of the product for which the password is being encrypted
 -t, --tenant=TENANT        # tenant - name of the tenant of the product
 -s, --stack=STACK          # stack - dev, qa, sit, uat, production
 -c, --context=CONTEXT      # context - unique context for the plaintext being encrypted; for example, hostname of the application server
