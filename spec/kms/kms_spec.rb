@@ -11,7 +11,7 @@ describe Kms do
     AWS_REGION = "AWS_REGION"
     @region = ENV[AWS_REGION]
     # move to factory
-    @tenant = "phix"
+    @tenant = "phix"    
     @stack = "dev"
     @context = "hcus-osx-011.hcentive.com"
     @key_alias = Kms.build_key_alias(@stack, @tenant)
@@ -56,7 +56,7 @@ describe Kms do
     c = Kms.encrypt(@tenant, @stack, @context, plaintext)
 
     creds = Aws::SharedCredentials.new(path: @credentialsfile)
-    k = Aws::KMS::Client.new(credentials: creds, region: @region)    
+    k = Aws::KMS::Client.new(credentials: creds, region: @region)
 
     expect{resp = k.decrypt({
       ciphertext_blob: Base64.decode64(c),
