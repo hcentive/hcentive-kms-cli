@@ -4,3 +4,8 @@ logger:
 
 aws:
   region: "us-east-1"
+
+kms:
+  tld: "net"
+  sld: "hcinternal"
+  
