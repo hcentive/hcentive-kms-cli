@@ -10,6 +10,7 @@ require 'kms'
 require 'kms/settings'
 
 module Kms
+  # Thor based command line interface for Kms
   class Cli < Thor
     config = {
       :logger => {
@@ -60,7 +61,7 @@ module Kms
     method_option :ciphertext, :required => true, :aliases => "-x", :type => :string, :desc => "ciphertext - Base64 encoded text to be decrypted"
     def decrypt
       @@logger.progname = "#{self.class.name}:#{__method__.to_s}"
-  		@@logger.info {"[Start] #{__method__.to_s}"}      
+  		@@logger.info {"[Start] #{__method__.to_s}"}
 
       resp = Kms.decrypt(options[:tenant], options[:stack], options[:context], options[:ciphertext])
       puts resp

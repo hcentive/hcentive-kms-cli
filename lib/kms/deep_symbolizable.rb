@@ -1,18 +1,17 @@
-# Forked from https://gist.github.com/morhekil/3706140
-# Symbolizes all of hash's keys and subkeys.
-# Also allows for custom pre-processing of keys (e.g. downcasing, etc)
-# if the block is given:
-#
-# somehash.deep_symbolize { |key| key.downcase }
-#
-# Usage: either include it into global Hash class to make it available to
-# to all hashes, or extend only your own hash objects with this
-# module.
-# E.g.:
-# 1) class Hash; include DeepSymbolizable; end
-# 2) myhash.extend DeepSymbolizable
-
 module Kms
+  # Forked from https://gist.github.com/morhekil/3706140
+  # Symbolizes all of hash's keys and subkeys.
+  # Also allows for custom pre-processing of keys (e.g. downcasing, etc)
+  # if the block is given:
+  #
+  # somehash.deep_symbolize { |key| key.downcase }
+  #
+  # Usage: either include it into global Hash class to make it available to
+  # to all hashes, or extend only your own hash objects with this
+  # module.
+  # E.g.:
+  # 1) class Hash; include DeepSymbolizable; end
+  # 2) myhash.extend DeepSymbolizable
   module DeepSymbolizable
 
     class Hash

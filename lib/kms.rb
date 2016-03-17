@@ -5,6 +5,7 @@ require 'json'
 require 'base64'
 require 'kms/settings'
 
+# Module with methods for KMS operations.
 module Kms
   config = {
     :logger => {
@@ -33,6 +34,12 @@ module Kms
 		"[#{datetime}] : #{severity} : #{progname} - #{msg}\n"
 	end
 
+  # Encrypt the supplied plaintext using an encryption context built from the specified tenant, stack and context.
+  # @param tenant [String] tenant that owns the master key e.g. "fidelity", "arshop", etc.
+  # @param stack [String] stack or environment type for the tenant e.g. "dev", "qa", "prod"
+  # @param context [String] context for plaintext to be encrypted. For example, the hostname of a tomcat instance - "fidelity-qa01.hcinternal.net"
+  # @param plaintext [String] the plaintext that is to be encrypted.
+  # @return [String] base64 encoded ciphertext.
   def self.encrypt(tenant, stack, context, plaintext)
     @@logger.progname = "#{self.class.name}:#{__method__.to_s}"
 		@@logger.info {"[Start] #{__method__.to_s}"}
@@ -59,6 +66,12 @@ module Kms
     return ciphertext
   end
 
+  # Decrypt the supplied ciphertext using an encryption context built from the specified tenant, stack and context.
+  # @param tenant [String] tenant that owns the master key e.g. "fidelity", "arshop", etc.
+  # @param stack [String] stack or environment type for the tenant e.g. "dev", "qa", "prod"
+  # @param context [String] context for plaintext to be encrypted. For example, the hostname of a tomcat instance - "fidelity-qa01.hcinternal.net"
+  # @param ciphertext [String] base64 encoded ciphertext.
+  # @return [String] the decrypted plaintext.
   def self.decrypt(tenant, stack, context, ciphertext)
     @@logger.progname = "#{self.class.name}:#{__method__.to_s}"
     @@logger.info {"[Start] #{__method__.to_s}"}
@@ -83,6 +96,11 @@ module Kms
     return plaintext
   end
 
+  # Builds encryption context [Hash] from the specified tenant, stack and context.
+  # @param tenant [String] tenant that owns the master key e.g. "fidelity", "arshop", etc.
+  # @param stack [String] stack or environment type for the tenant e.g. "dev", "qa", "prod"
+  # @param context [String] context for plaintext to be encrypted. For example, the hostname of a tomcat instance - "fidelity-qa01.hcinternal.net"
+  # @return [Hash].
   def self.build_encryption_context(tenant, stack, context)
     ec_hash = {
                 :tenant  =>   tenant,
@@ -92,8 +110,12 @@ module Kms
     return ec_hash
   end
 
+  # Builds KMS key alias from stack and tenant.
+  # @param tenant [String] tenant that owns the master key e.g. "fidelity", "arshop", etc.
+  # @param stack [String] stack or environment type for the tenant e.g. "dev", "qa", "prod"
+  # @return [String].
   def self.build_key_alias(stack, tenant)
     ka = "alias/#{Settings.kms[:tld]}/#{Settings.kms[:sld]}/#{stack}/#{tenant}"
     return ka
-  end  
+  end
 end
