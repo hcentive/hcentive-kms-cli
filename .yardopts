@@ -1,0 +1,4 @@
+--no-private
+--protected
+--exclude /lib/kms/deep_symbolize.rb 
+./**/*.rb - README.md LICENSE.txt
