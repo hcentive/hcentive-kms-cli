@@ -1,6 +1,6 @@
 kms
 ===
-A command line tool to encrypt and decrypt text using AWS KMS. It is part of the toolset for the [overall encryption framework](https://hcentivetech-my.sharepoint.com/personal/satyendra_sharma_hcentive_com/_layouts/15/guestaccess.aspx?guestaccesstoken=1j4waC6Kg%2b90kbnOEiyD8BohYtSvUKuvhfPfj8Atne4%3d&docid=2_17e675c6f293b4a198e2aa50ef7903313).
+A command line tool to encrypt and decrypt text using AWS KMS. It is part of the toolset for the [overall encryption framework](https://github.com/hcentive/kms).
 
 Installation
 ------------
