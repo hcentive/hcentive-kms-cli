@@ -7,6 +7,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Satyendra Sharma"]
   s.email       = 'satyendra.sharma@hcentive.com'
   s.files       = Dir.glob("{bin,lib}/**/*") + %w(README.md)
-  s.homepage    ='https://www.hcentive.com'
+  s.homepage    ='https://github.com/hcentive/hcentive-kms-cli'
   s.license     = 'MIT'
 end
