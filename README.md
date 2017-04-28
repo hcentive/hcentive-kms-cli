@@ -22,7 +22,11 @@ AWS_KMS_KEY_SPEC=AES_256
 ```
 If this utility is run from an EC2 instance launched with an [IAM role](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html), the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are picked up from instance metadata.
 
-Clone the repository from https://git.demo.hcentive.com/hcentive-kms-cli, and run `bundle install` to install dependencies.
+Clone the repository from GitHub and run `bundle install` to install dependencies
+```
+$ git clone https://git.demo.hcentive.com/hcentive-kms-cli
+$ bundle install
+```
 
 Usage
 -----
